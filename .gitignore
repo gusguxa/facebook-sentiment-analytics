@@ -1,0 +1,5 @@
+# Archivos temporales de pruebas y capturas locales
+*.png
+patch_*.py
+fix_*.py
+scratch/

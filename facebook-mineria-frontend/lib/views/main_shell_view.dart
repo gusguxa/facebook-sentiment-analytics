@@ -222,6 +222,7 @@ class MainShellViewState extends State<MainShellView> {
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           drawer: _buildNavigationDrawer(isDark, nombreUsuario, rolUsuario),
           appBar: AppBar(
+            toolbarHeight: 62,
             automaticallyImplyLeading: false,
             leading: IconButton(
               tooltip: 'Menú de vistas',
@@ -317,50 +318,62 @@ class MainShellViewState extends State<MainShellView> {
               const SizedBox(width: 4),
 
               // Badge Clickeable de Usuario / Cuenta
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: InkWell(
-                  onTap: () => _mostrarDialogoPerfil(nombreUsuario, correoUsuario, rolUsuario),
-                  borderRadius: BorderRadius.circular(12),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF1E293B),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: const Color(0xFF334155)),
-                    ),
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 14,
-                          backgroundColor: _accent,
-                          child: Text(
-                            nombreUsuario.isNotEmpty ? nombreUsuario[0].toUpperCase() : 'A',
-                            style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.white),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: InkWell(
+                    onTap: () => _mostrarDialogoPerfil(nombreUsuario, correoUsuario, rolUsuario),
+                    borderRadius: BorderRadius.circular(12),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3.5),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF1E293B),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(color: const Color(0xFF334155)),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 13,
+                            backgroundColor: _accent,
+                            child: Text(
+                              nombreUsuario.isNotEmpty ? nombreUsuario[0].toUpperCase() : 'A',
+                              style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.white),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 8),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              nombreUsuario,
-                              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
-                            ),
-                            Text(
-                              rolUsuario.toLowerCase() == 'admin' ? 'ADMIN' : 'SOLO CONSULTA',
-                              style: TextStyle(
-                                fontSize: 9.5,
-                                fontWeight: FontWeight.bold,
-                                color: rolUsuario.toLowerCase() == 'admin' ? const Color(0xFF10B981) : const Color(0xFF60A5FA),
+                          const SizedBox(width: 8),
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                nombreUsuario,
+                                style: const TextStyle(
+                                  fontSize: 11.5,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  height: 1.15,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(width: 4),
-                        const Icon(Icons.arrow_drop_down_rounded, color: Color(0xFF94A3B8), size: 18),
-                      ],
+                              const SizedBox(height: 1),
+                              Text(
+                                rolUsuario.toLowerCase() == 'admin' ? 'ADMIN' : 'SOLO CONSULTA',
+                                style: TextStyle(
+                                  fontSize: 9.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: rolUsuario.toLowerCase() == 'admin' ? const Color(0xFF10B981) : const Color(0xFF60A5FA),
+                                  height: 1.1,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(width: 4),
+                          const Icon(Icons.arrow_drop_down_rounded, color: Color(0xFF94A3B8), size: 18),
+                        ],
+                      ),
                     ),
                   ),
                 ),
