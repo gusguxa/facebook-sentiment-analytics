@@ -317,63 +317,62 @@ class MainShellViewState extends State<MainShellView> {
               ),
               const SizedBox(width: 4),
 
-              // Badge Clickeable de Usuario / Cuenta
+              // Badge Clickeable de Usuario / Cuenta (Diseño horizontal blindado contra overflow)
               Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: InkWell(
-                    onTap: () => _mostrarDialogoPerfil(nombreUsuario, correoUsuario, rolUsuario),
-                    borderRadius: BorderRadius.circular(12),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3.5),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF1E293B),
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: const Color(0xFF334155)),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          CircleAvatar(
-                            radius: 13,
-                            backgroundColor: _accent,
-                            child: Text(
-                              nombreUsuario.isNotEmpty ? nombreUsuario[0].toUpperCase() : 'A',
-                              style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.white),
+                child: InkWell(
+                  onTap: () => _mostrarDialogoPerfil(nombreUsuario, correoUsuario, rolUsuario),
+                  borderRadius: BorderRadius.circular(12),
+                  child: Container(
+                    height: 36,
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF1E293B),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: const Color(0xFF334155)),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircleAvatar(
+                          radius: 11,
+                          backgroundColor: _accent,
+                          child: Text(
+                            nombreUsuario.isNotEmpty ? nombreUsuario[0].toUpperCase() : 'A',
+                            style: const TextStyle(fontSize: 10.5, fontWeight: FontWeight.bold, color: Colors.white),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          nombreUsuario,
+                          style: const TextStyle(
+                            fontSize: 12.5,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: (rolUsuario.toLowerCase() == 'admin' ? const Color(0xFF10B981) : const Color(0xFF3B82F6)).withValues(alpha: 0.15),
+                            borderRadius: BorderRadius.circular(6),
+                            border: Border.all(
+                              color: (rolUsuario.toLowerCase() == 'admin' ? const Color(0xFF10B981) : const Color(0xFF3B82F6)).withValues(alpha: 0.35),
                             ),
                           ),
-                          const SizedBox(width: 8),
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                nombreUsuario,
-                                style: const TextStyle(
-                                  fontSize: 11.5,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  height: 1.15,
-                                ),
-                              ),
-                              const SizedBox(height: 1),
-                              Text(
-                                rolUsuario.toLowerCase() == 'admin' ? 'ADMIN' : 'SOLO CONSULTA',
-                                style: TextStyle(
-                                  fontSize: 9.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: rolUsuario.toLowerCase() == 'admin' ? const Color(0xFF10B981) : const Color(0xFF60A5FA),
-                                  height: 1.1,
-                                ),
-                              ),
-                            ],
+                          child: Text(
+                            rolUsuario.toLowerCase() == 'admin' ? 'ADMIN' : 'SOLO CONSULTA',
+                            style: TextStyle(
+                              fontSize: 9.5,
+                              fontWeight: FontWeight.bold,
+                              color: rolUsuario.toLowerCase() == 'admin' ? const Color(0xFF10B981) : const Color(0xFF60A5FA),
+                            ),
                           ),
-                          const SizedBox(width: 4),
-                          const Icon(Icons.arrow_drop_down_rounded, color: Color(0xFF94A3B8), size: 18),
-                        ],
-                      ),
+                        ),
+                        const SizedBox(width: 4),
+                        const Icon(Icons.arrow_drop_down_rounded, color: Color(0xFF94A3B8), size: 18),
+                      ],
                     ),
                   ),
                 ),

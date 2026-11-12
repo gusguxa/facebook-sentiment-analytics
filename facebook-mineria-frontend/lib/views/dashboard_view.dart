@@ -1097,7 +1097,7 @@ class DashboardViewState extends State<DashboardView> with TickerProviderStateMi
 
                           Text(
 
-                            'ℹ️ Gemini clasificó las reacciones "Me divierte" como crítica/burla sarcástica debido al contexto de la publicación.',
+                            'Gemini clasificó las reacciones "Me divierte" como crítica/burla sarcástica debido al contexto de la publicación.',
 
                             style: TextStyle(fontSize: 11.5, color: Color(0xFFE41E3F), fontStyle: FontStyle.italic),
 

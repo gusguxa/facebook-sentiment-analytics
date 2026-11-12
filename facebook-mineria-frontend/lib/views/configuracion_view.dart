@@ -279,28 +279,28 @@ class _ConfiguracionViewState extends State<ConfiguracionView> {
                     ],
 
                     // SECCIÓN 1: APARIENCIA Y SELECCIÓN DE TEMA
-                    _buildSeccionHeader('🎨 Apariencia & Modo Visual', 'Elige entre modo Claro, Oscuro o sincronizado con el sistema', primaryTextColor, secondaryTextColor),
+                    _buildSeccionHeader('Apariencia & Modo Visual', 'Elige entre modo Claro, Oscuro o sincronizado con el sistema', primaryTextColor, secondaryTextColor),
                     const SizedBox(height: 12),
                     _buildThemeSelectorCard(isDark, primaryTextColor, secondaryTextColor),
 
                     const SizedBox(height: 24),
 
                     // SECCIÓN 2: OPCIONES GENERALES FUNCIONALES
-                    _buildSeccionHeader('⚙️ Opciones Generales de la Aplicación', 'Ajusta el comportamiento de alertas, animaciones y exportación', primaryTextColor, secondaryTextColor),
+                    _buildSeccionHeader('Opciones Generales de la Aplicación', 'Ajusta el comportamiento de alertas, animaciones y exportación', primaryTextColor, secondaryTextColor),
                     const SizedBox(height: 12),
                     _buildGeneralSettingsCard(isDark, primaryTextColor, secondaryTextColor, AppSettings.isAdmin),
 
                     const SizedBox(height: 24),
 
                     // SECCIÓN 3: MI CUENTA Y SESIÓN
-                    _buildSeccionHeader('👤 Cuenta & Control de Sesión', 'Gestiona tu acceso, contraseña y estado de autenticación', primaryTextColor, secondaryTextColor),
+                    _buildSeccionHeader('Cuenta & Control de Sesión', 'Gestiona tu acceso, contraseña y estado de autenticación', primaryTextColor, secondaryTextColor),
                     const SizedBox(height: 12),
                     _buildAccountCard(nombreUsuario, correoUsuario, rolUsuario, isDark, primaryTextColor, secondaryTextColor),
 
                     const SizedBox(height: 24),
 
                     // SECCIÓN 4: DIAGNÓSTICO DE SERVICIOS
-                    _buildSeccionHeader('🖥️ Estado de Microservicios & Conectividad', 'Monitoreo en vivo de MariaDB, Playwright y Google Gemini', primaryTextColor, secondaryTextColor),
+                    _buildSeccionHeader('Estado de Microservicios & Conectividad', 'Monitoreo en vivo de MariaDB, Playwright y Google Gemini', primaryTextColor, secondaryTextColor),
                     const SizedBox(height: 12),
                     LayoutBuilder(
                       builder: (context, constraints) {
